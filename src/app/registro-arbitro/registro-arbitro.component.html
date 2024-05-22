@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    
+
+    <form>
+        <h2>Registro</h2>
+        <input type="text" placeholder="Nombre" [(ngModel)]="payloadObj.nombre" name="nombre">
+        <input type="text" placeholder="Apellido" [(ngModel)]="payloadObj.apellido" name="apellido">
+        <input type="text" placeholder="Identificacion" pattern="[0-9]*" [(ngModel)]="payloadObj.identificacion" name="identificacion">
+        <input type="text" placeholder="Telefono" pattern="[0-9]*" [(ngModel)]="payloadObj.telefono" name="telefono">
+        <input type="email" placeholder="Email" [(ngModel)]="payloadObj.correoElectronico" name="correoElectronico">
+        <input type="password" placeholder="Contraseña" pattern="[0-9]*" [(ngModel)]="payloadObj.contrasena" name="contrasena">
+        <input type="password" placeholder="Confirma Contraseña" pattern="[0-9]*" >
+
+        <input type="submit" class="button"  (click)="registerArbitro()" value="Guardar">
+    </form>
+
+
+</body>
+</html>

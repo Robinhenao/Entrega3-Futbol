@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <form action="#">
+        <h2>Iniciar Sesión</h2>
+        <input type="email"   placeholder="Correo Electronico" [(ngModel)]="loginObj.username" name="username" required>
+        <input type="password"   placeholder="Contraseña" [(ngModel)]="loginObj.password" name="password" required>
+        <a routerLink="/recuperar_contrasena" routerLinkActive="active" class="olvido-contrasena">¿Olvidó su contraseña?</a>
+        <input type="submit" class="btn" (click)="onLogin()" value="Iniciar Sesión">
+        <a routerLink="/registro_jugador" routerLinkActive="active" class="registro">¿Aun no tienes cuenta? Regístrate ahora</a>
+    </form>
+</body>
+</html>
