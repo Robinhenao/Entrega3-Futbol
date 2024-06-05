@@ -7,34 +7,55 @@
     <link rel="stylesheet" href="nuevo-partido.component.css">
 </head>
 <body>
-    
-
-    <form>
+    <form (ngSubmit)="guardarPartido()">
         <h2>Nuevo partido</h2>
+      
         <div class="agregar">
-            <span class="text">Equipo 1:</span>
-            <a class="button-agregar" href="pages/jugadores-disponibles/jugadores-disponibles.html">Agregar jugador</a>  
+          <label for="equipo1">Equipo 1:</label>
+          <select id="equipo1" name="Equipo1" [(ngModel)]="selectedEquipo1">
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.idEquipo">{{ equipo.nombre }}</option>
+          </select>
         </div>
-
+      
         <div class="agregar">
-            <span class="text">Equipo 2:</span>
-            <a class="button-agregar" href="pages/jugadores-disponibles/jugadores-disponibles.html">Agregar jugador</a> 
-            
+          <label for="equipo2">Equipo 2:</label>
+          <select id="equipo2" name="Equipo2" [(ngModel)]="selectedEquipo2">
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.idEquipo">{{ equipo.nombre }}</option>
+          </select>
         </div>
-
+      
         <div class="agregar">
-            <span class="text">Árbitro:</span>
-            <a  class="button-agregar" href="pages/jugadores-disponibles/jugadores-disponibles.html">Agregar árbitro</a>  
+          <label for="arbitro">Árbitro:</label>
+          <select id="arbitro" name="arbitro" [(ngModel)]="selectedArbitro">
+            <option *ngFor="let arbitro of arbitros" [ngValue]="arbitro.idArbitro">{{ arbitro.nombre }} {{ arbitro.apellido }}</option>
+          </select>
         </div>
-
-        <input type="date" placeholder="Fecha:">
-        <input type="datetime" placeholder="Hora:">
-        <input type="text" placeholder="Lugar:">
-        <input type="text" placeholder="Apuesta:">
-
+      
+        <div class="agregar">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" name="fecha" [(ngModel)]="fecha">
+        </div>
+      
+        <div class="agregar">
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora" name="hora" [(ngModel)]="hora">
+        </div>
+      
+        <div class="agregar">
+          <label for="lugar">Lugar:</label>
+          <input type="text" id="lugar" name="lugar" [(ngModel)]="lugar">
+        </div>
+      
+        <div class="agregar">
+          <label for="apuesta">¿Apuesta?</label>
+          <select id="apuesta" name="apuesta" [(ngModel)]="apuesta">
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+          </select>
+        </div>
         <input type="submit" class="button" value="Guardar">
-    </form>
-
-
+      </form>
+      
+    
 </body>
 </html>

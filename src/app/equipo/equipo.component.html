@@ -8,25 +8,28 @@
 </head>
 
 <body>
-
-    <form>
+    <form (ngSubmit)="guardarEquipo()">
         <h2>Registro</h2>
-        <input type="text" placeholder="Nombre">
-        <input type="text" placeholder="Estado">
 
-        <h3>Selecciona Jugadores</h3>
-        <select multiple>
-            <option value="jugador1">Jugador 1</option>
-            <option value="jugador2">Jugador 2</option>
-            <option value="jugador3">Jugador 3</option>
-            <option value="jugador4">Jugador 4</option>
-            <option value="jugador5">Jugador 5</option>
+        <input type="text" placeholder="Nombre" [(ngModel)]="nombreEquipo" name="nombreEquipo">
+        <select id="estado" name="estado" [(ngModel)]="estadoEquipo">
+            <option [ngValue]="true">Activo</option>
+            <option [ngValue]="false">Inactivo</option>
         </select>
+        <br><br>
+        <label for="jugadores">Jugadores:</label>
+        <select id="jugadores-select" name="jugadores"></select>
+        <br>
+
+        <input type="button" class="button" value="Agregar" (click)="agregarJugador()">
+        <br><br>
+
+        <h3>Jugadores seleccionados</h3>
+        <select id="jugadores-lista" multiple></select>
 
         <br>
         <input type="submit" class="button" value="Guardar">
     </form>
-
 </body>
 
 </html>
