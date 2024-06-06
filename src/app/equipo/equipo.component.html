@@ -9,26 +9,38 @@
 
 <body>
     <form (ngSubmit)="guardarEquipo()">
-        <h2>Registro</h2>
+        <h2>Registro equipo</h2>
 
-        <input type="text" placeholder="Nombre" [(ngModel)]="nombreEquipo" name="nombreEquipo">
-        <select id="estado" name="estado" [(ngModel)]="estadoEquipo">
-            <option [ngValue]="true">Activo</option>
-            <option [ngValue]="false">Inactivo</option>
-        </select>
-        <br><br>
-        <label for="jugadores">Jugadores:</label>
-        <select id="jugadores-select" name="jugadores"></select>
-        <br>
+        <div class="agregar">
+            <label for="nombreEquipo">Nombre:</label>
+            <input type="text" id="nombreEquipo" placeholder="Nombre" [(ngModel)]="nombreEquipo" name="nombreEquipo">
+        </div>
 
-        <input type="button" class="button" value="Agregar" (click)="agregarJugador()">
-        <br><br>
+        <div class="agregar">
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" [(ngModel)]="estadoEquipo">
+                <option [ngValue]="true">Activo</option>
+                <option [ngValue]="false">Inactivo</option>
+            </select>
+        </div>
 
-        <h3>Jugadores seleccionados</h3>
-        <select id="jugadores-lista" multiple></select>
+        <div class="agregar">
+            <label for="jugadores">Jugadores:</label>
+            <select id="jugadores-select" name="jugadores"></select>
+        </div>
 
-        <br>
-        <input type="submit" class="button" value="Guardar">
+        <div class="agregar">
+            <input type="button" class="button" value="Agregar jugador" (click)="agregarJugador()">
+        </div>
+
+        <div class="agregar">
+            <label>Jugadores seleccionados:</label>
+            <select id="jugadores-lista" multiple></select>
+        </div>
+
+        <div class="agregar">
+            <input type="submit" class="button" value="Guardar">
+        </div>
     </form>
 </body>
 

@@ -1,34 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router ,NavigationEnd} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [RouterLink, FormsModule, HttpClientModule]
+  imports: [RouterLink, FormsModule, HttpClientModule,CommonModule]
 })
 export class LoginComponent {
 
   loginObj: Login;
-  constructor(private http: HttpClient) {
+  
+  constructor(private http:HttpClient ,private router: Router) {
     this.loginObj = new Login();
   }
 
+ 
   onLogin() {
     this.http.post('http://localhost:8080/api/auth', this.loginObj).subscribe((res: any) => {
       if (res.result) {
         console.log(res)
-        alert("login succces")
+        alert("error succces")
+        
       }
       else {
-        alert(res.message)
-        console.log(res)
-      }
+        alert("login succces")
+        this.router.navigate(['/equipo']);
+      } 
     })
   }
+
+  
 
 }
 export class Login {
@@ -38,5 +44,4 @@ export class Login {
     this.username = "";
     this.password = "";
   }
-
 }
